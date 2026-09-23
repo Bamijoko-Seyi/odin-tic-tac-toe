@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+input {
+    padding: 10px 12px;
+    border: 1px solid #e8ebe5;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 100%;
+    min-width: 200px;
+}
+
+input:focus {
+    border-color: #63770c;
+    outline: none;
+    box-shadow: 0 0 4px rgba(89, 109, 72, 0.3);
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-container > div {
+    display: flex;
+    gap: 128px;
+}
+.input-container h3 {
+    margin-bottom: 16px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    background-color: #b0d314;
+    font-family: Roboto, sans-serif;
+    padding-top: 16px;
+    gap: 32px;
+}
+
+button {
+    padding: 12px 40px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    align-self: flex-start; /* Did this to fix width problems*/
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 32px auto 32px auto;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(3, auto);
+    gap: 16px;
+    background-color: #000000;
+}
+
+
+.grid-container div {
+    height: 220px;
+    width: 220px;
+    background-color: #ffff;
+    cursor: pointer;
+}
+
