@@ -6,8 +6,6 @@
 
 html, body {
     height: 100%;
-    margin: 0;
-    padding: 0;
 }
 
 input {
@@ -20,7 +18,7 @@ input {
 }
 
 input:focus {
-    border-color: #63770c;
+    border-color: #775e0c;
     outline: none;
     box-shadow: 0 0 4px rgba(89, 109, 72, 0.3);
 }
@@ -28,6 +26,10 @@ input:focus {
 .input-container {
     display: flex;
     flex-direction: column;
+}
+
+.input-container[hidden] {
+    display: none;
 }
 
 .input-container > div {
@@ -39,11 +41,13 @@ input:focus {
 }
 
 body {
+    min-height: 100vh;
+    margin: 32px 0 32px 0; 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-items: center;
-    background-color: #b0d314;
+    background-color: #d39614;
     font-family: Roboto, sans-serif;
     padding-top: 16px;
     gap: 32px;
@@ -82,5 +86,9 @@ button {
     justify-content: center;
     font-size: 192px;
     font-weight: 700;
+}
+
+#restart-button {
+    margin-bottom: 16px;
 }
 

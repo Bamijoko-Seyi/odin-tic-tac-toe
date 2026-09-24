@@ -2,6 +2,8 @@
 const beginButton = document.querySelector('#begin-button');
 const inputContainer = document.querySelector('.input-container');
 const gridContainer = document.querySelector('.grid-container');
+const mainHeader = document.querySelector('.main-header');
+const restartButton = document.querySelector('#restart-button');
 
 let board, playerOne, playerTwo, activePlayer, gameOver;
 
@@ -20,6 +22,7 @@ beginButton.addEventListener("click", () => {
     }
 
     inputContainer.hidden = true; 
+    mainHeader.textContent = `It's Player ${playerOneName}\'s Turn`
 
     board = gameBoard()
     playerOne = player(playerOneName, 'X')
@@ -31,6 +34,19 @@ beginButton.addEventListener("click", () => {
         cell.textContent = ''
         cell.style.color = ''
     })
+
+})
+
+restartButton.addEventListener("click", () => {
+    board.clearBoard()
+    gridContainer.querySelectorAll('div').forEach(cell => {
+        cell.textContent = ''
+        cell.style.color = ''
+    })
+    activePlayer = playerOne;
+    gameOver = false
+
+    mainHeader.textContent = `It's Player ${activePlayer.getName()}\'s Turn`
 
 })
 
@@ -48,22 +64,24 @@ function handleCellClick(cell) {
     cell.textContent = sign
     setColor(cell, sign)
 
+    
+
     const winner = checkWinner(board.getBoard());
     if (winner) {
         gameOver = true
-        activePlayer.addPoint();
-        setTimeout(() => alert(`${activePlayer.getName()} wins!`), 0);
+        mainHeader.textContent = `Player ${activePlayer.getName()} Wins!`
         return;
     }
 
     if (isBoardFull(board.getBoard())) {
         gameOver = true
-        alert("It's a draw!")
+        mainHeader.textContent = "It's a draw!"
         return
     }
 
 
     activePlayer = activePlayer === playerOne ? playerTwo : playerOne
+    mainHeader.textContent = `It's Player ${activePlayer.getName()}\'s Turn`
 }
 
 gridContainer.addEventListener('click', (event) => {
